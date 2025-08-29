@@ -7,18 +7,20 @@ include_once("persistencia.php"); // Importa um arquivo externo.
 
 $livros = buscarDados("livros.json");  //Buscar livros salvos
 
-if (isset($_POST['titulo'])) { //Validação do titulo
+if (isset($_POST["titulo"])) { //Validação do titulo
 
-    $titulo = $_POST['titulo'];
-    $genero = $_POST['genero'];
-    $numPaginas = $_POST['numPaginas'];
+    $titulo = $_POST["titulo"];
+    $genero = $_POST["genero"];
+    $numPaginas = $_POST["numPaginas"];
+    $autor = $_POST["autor"];
 
 
     $livro = array(
         "id" => uniqid(), //Gera um codigo unico função nativa
         "titulo" => $titulo,
         "genero" => $genero,
-        "paginas" => $numPaginas
+        "paginas" => $numPaginas,
+        "autor" => $autor
     );
 
     array_push($livros, $livro); //Insere livro dentro do livros 
@@ -61,6 +63,7 @@ if (isset($_POST['titulo'])) { //Validação do titulo
 
         <input type="number" name="numPaginas" placeholder="Informe o número de páginas">
         <br><br>
+        <input type="text" name="autor" placeholder="Informe o autor">
 
         <input type="submit" value="Enviar" />
     </form>
@@ -73,6 +76,7 @@ if (isset($_POST['titulo'])) { //Validação do titulo
             <th>Título</th>
             <th>Gênero</th>
             <th>Quant. Páginas</th>
+            <th>Autor</th>
             <th>Excluir</th>
         </tr>
 
@@ -82,6 +86,7 @@ if (isset($_POST['titulo'])) { //Validação do titulo
                 <td><?= $l['titulo']?> </td> 
                 <td><?= $l['genero']?> </td>
                 <td><?= $l['paginas']?> </td>
+                <td><?= $l['autor']?> </td>
                 <td>
                     <a href="excluir.php?id=<?= $l['id'] ?>" onclick="return confirm('Confirma a exclusão?')"> Excluir</a> <!--Comando com PHP e javascrip para confirmar a exclusão-->
                 </td>

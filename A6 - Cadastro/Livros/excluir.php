@@ -7,6 +7,7 @@ include_once("persistencia.php"); // Importa um arquivo externo.
 $livros = buscarDados("livros.json"); //carrega os dados do JSON
 $id = $_GET["id"];  //Recebe o ID do livro 
 
+//Buscar itens por ID
 $idxExcluir = -1;
 foreach($livros as $idx => $l){ //atribui indice com valor.
     if($id == $l['id']){ //se id selecionado for igual ao id do $l 
