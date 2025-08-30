@@ -1,0 +1,30 @@
+[
+    {
+        "id": "68b238adebbff",
+        "autor": "teste",
+        "titulo": "Jorge",
+        "genero": "D",
+        "paginas": "12"
+    },
+    {
+        "id": "68b244cfbdc51",
+        "autor": "Graciliano Ramos",
+        "titulo": "Vidas Secas",
+        "genero": "D",
+        "paginas": "56"
+    },
+    {
+        "id": "68b247a740045",
+        "autor": "a",
+        "titulo": "a",
+        "genero": "D",
+        "paginas": "12"
+    },
+    {
+        "id": "68b249242b8ee",
+        "autor": "Cleber",
+        "titulo": "Cleber",
+        "genero": "O",
+        "paginas": "12"
+    }
+]
