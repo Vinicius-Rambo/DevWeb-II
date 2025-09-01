@@ -72,8 +72,8 @@
 
         <select name="genero">
         <option value=""> - - - Selecione - - - </option>
-        <option value="M" <?= $genero == 'M' ? 'selected' : '' ?>> Masculino </option>
-        <option value="F" <?= $genero == 'F' ? 'selected' : ''?>> Feminino </option>
+        <option value="M" <?= $genero == 'M' ? 'selected' : '' ?>> Homem </option>
+        <option value="F" <?= $genero == 'F' ? 'selected' : ''?>> Mulher </option>
         <option value="PN"<?= $genero == 'PN' ? 'selected' : ''?>>  Prefiro não informar </option>
 
         </select><br>
