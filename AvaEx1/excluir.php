@@ -1,8 +1,8 @@
 <?php 
-include_once("persistencia.php");
-$dados = buscarDados("dados.json");
+include_once("persistencia.php"); //Inclui percistencia
+$dados = buscarDados("dados.json"); //Função para buscar Dados
 
-$id = $_GET['id'];
+$id = $_GET['id']; //Variavel local ID = a superGlobal ID 
 
 $idExcluir = -1;
 foreach($dados as $idx =>$l){
