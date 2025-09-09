@@ -61,9 +61,9 @@
 
     <form method="POST">
         <label>Nome</label>
-        <input type="text" name="nome" id="nome" value="<?=$nome ?> "><br>
+        <input type="text" name="nome" id="nome" value="<?=$nome ?> "><br><br>
         
-        <label>Tipo</label>
+        <label>Tipo   </label>
         <select name="tipo">
             <option value=""> - - - Selecione - - - </option>
             <option value="Planeta" <?= $tipo == 'Planeta' ? 'selected' : '' ?>> Planeta </option>
@@ -74,20 +74,17 @@
             <option value="Galáxia" <?= $tipo == 'Galáxia' ? 'selected' : '' ?>> Galáxia </option>
             <option value="Satélite Natural" <?= $tipo == 'Satélite Natural' ? 'selected' : '' ?>> Satélite Natural </option>
             <option value="Aglomerado Estelar" <?= $tipo == 'Aglomerado Estelar' ? 'selected' : '' ?>> Aglomerado Estelar </option>
-        </select><br>
+        </select><br><br>
 
         <label>Gravidade (m/s²)</label>
-        <input type="number" name="gravidade" id="gravidade" value="<?=$gravidade?>"><br>
+        <input type="number" step="0.1" name="gravidade" id="gravidade" value="<?=$gravidade?>"><br><br>
 
         <label> Está na Via Láctea? </label><br> <!-- Sei que não se era necessario o input Radio, mas eu quis testar como funciona -->
 
-        <label>Sim</label>
-        <input type="radio" name="via_lactea" value="sim" <?= $via_lactea == 'sim' ? 'checked' : '' ?>>
+        <label> <input type="radio" name="via_lactea" value="sim" <?= $via_lactea == 'sim' ? 'checked' : '' ?>> Sim </label>
+        <label> <input type="radio" name="via_lactea" value="nao" <?= $via_lactea == 'nao' ? 'checked' : '' ?>> Não </label>
         
-        <label>Não</label>
-        <input type="radio" name="via_lactea" value="nao" <?= $via_lactea == 'nao' ? 'checked' : '' ?>><br>
-        
-        <label>Distância</label>
+        <br> <label>Distância</label>
         <select name="distancia">
             <option value=""> - - - Selecione - - - </option>
             <option value="0-1000 anos-luz" <?= $distancia == '0-1000 anos-luz' ? 'selected' : '' ?>> 0–1000 anos-luz </option>
@@ -95,7 +92,7 @@
             <option value="10000-100000 anos-luz" <?= $distancia == '10000-100000 anos-luz' ? 'selected' : '' ?>> 10000–100000 anos-luz </option>
             <option value="100000-1M anos-luz" <?= $distancia == '100000-1M anos-luz' ? 'selected' : '' ?>> 100000–1M anos-luz </option>
             <option value="1M+ anos-luz" <?= $distancia == '1M+ anos-luz' ? 'selected' : '' ?>> 1M+ anos-luz </option>
-        </select><br>
+        </select><br><br>
 
         <input type="submit" value="Enviar">
     </form>
