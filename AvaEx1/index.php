@@ -108,10 +108,10 @@ if (isset($_POST['nome'])) {
 
         <div id="divErro" style="color: #f7768e;"> <?= $msgErro ?> </div>
     </div>
-    <h3> astros cadastrados </h3>
+    <h3> Cosmos Descobertos </h3>
 
     <div>
-        <table border="1">
+        <table border="2">
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -137,5 +137,5 @@ if (isset($_POST['nome'])) {
         </table>
     </div>
 </body>
-
+<script> </script>
 </html>
