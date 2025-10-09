@@ -1,0 +1,24 @@
+*{ /* Limpa os  espaçamentos do navegador */
+    padding: 20;
+    margin: 20;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th{
+    background-color: rgb(133, 221, 243); /*Azul clarinho*/
+    
+}
+button{
+    background-color: #65a0e0;
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}

@@ -1,24 +1,34 @@
 <?php
 include_once("connection.php");
 
-$erro = ""; //Inicialização vazia
+//Inicialização vazia
+$msgErro = ""; 
 $descricao = "";
 $un_medida = "";
+// - - - - - - - - - - 
 
 if(isset($_GET['descricao']) && isset($_GET['un_medida'])){
-    $descricao = trim($_GET['descricao']);
+    $descricao = trim($_GET['descricao']); // TRIM retira os espaços iniciais e finais
     $un_medida = trim($_GET['un_medida']);
 
-    if($descricao !="" && $un_medida != ""){ //Se ambos não forem vazios. 
+    $erros = array(); //Array de erros vazias
+
+    if ($descricao == '')
+        array_push($erros, "informe a descrição");
+
+    if ($un_medida == '')
+        array_push($erros, "informe a Unidade de medida");
+
+    if(empty($erros)){ //Se não houver erros. 
         $conn = Connection::getConnection();
         $sql = "INSERT INTO produtos (descricao, un_medida) VALUES(?,?)";
         $stm = $conn->prepare($sql);
         $stm ->execute(array($descricao, $un_medida)); //Aprova de SQL injection
 
-        header("Location: index.php");
+        header("Location: index.php"); //Volta para a listagem.
         exit;
     }else{
-        $erro = "Preencha todos os campos!";
+        $msgErro = implode("<br>", $erros); //Solta os valores do array na variavel erros seprado pelo <br>
     }
 }
 ?>
@@ -29,6 +39,8 @@ if(isset($_GET['descricao']) && isset($_GET['un_medida'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserção</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <h1> Inserir Produtos </h1>
@@ -36,7 +48,7 @@ if(isset($_GET['descricao']) && isset($_GET['un_medida'])){
         <input type="text" name="descricao" placeholder="Descrição">
         <input type="text" name="un_medida" placeholder="Unidade">
         <input type="submit" value="Salvar!">
-        <div id="divErro" style="color: #f7768e;"> <?= $erro ?> </div>
+        <div id="divErro" style="color: #f7768e;"> <?= $msgErro ?> </div>
 
     </form>
 </body>

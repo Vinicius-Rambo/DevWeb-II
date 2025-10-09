@@ -1,5 +1,5 @@
 <?php 
-include_once("connection.php");
+include_once("connection.php"); 
 
 $conn = Connection::getConnection(); //Chama o método para a conexão
 
@@ -20,8 +20,8 @@ $produtos = $stm -> fetchAll() ?:[];  //Todos os registros encontrados
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <h2>Todos os Produtos</h2>
-        <a href="produtoInserir.php"><button>Adicionar Produto</button></a>
+        <h1>Todos os Produtos</h1>
+        <a href="produtoInserir.php"><button>+</button></a>
         <table border="1px">
             <tr>
                 <th>ID</th>

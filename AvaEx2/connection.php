@@ -1,7 +1,7 @@
 <?php
 
 //Constantes para mostrar os erros no PHP
-ini_set('display_errors', 1);
+ini_set('display_errors', 1); //Conferencia de erros
 error_reporting(E_ALL);
 
 class Connection{
@@ -14,7 +14,7 @@ class Connection{
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,   //Define o tipo do erro como exceção
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC //Define o retorno das consultas como array associativo (campo => valor)
                 );
-                self::$conn = new PDO("mysql:host=localhost;dbname=produtos",
+                self::$conn = new PDO("mysql:host=localhost;dbname=produtos", //Conexão ao banco de dados "produtos"
                 "root", //Usuario
                 "bancodedados", //Senha
                 $opcoes); //Cria o objeto de conexão
