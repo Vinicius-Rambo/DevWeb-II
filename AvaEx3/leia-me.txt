@@ -1,0 +1,17 @@
+Form - SemiCompleto 
+Falta ser automatico:
+
+Inseri= Falta quase tudo
+
+Listar = Falta fazer o DAO e Controller para ele.
+
+
+erro do PC
+todos do model falta os Getters e Setters
+
+
+
+Finalizados
+Script.sql 
+config.php\
+Connection.php
