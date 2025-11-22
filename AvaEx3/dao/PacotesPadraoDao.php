@@ -12,7 +12,7 @@ class PacotesPadraoDao {
     }
 
     public function list() {
-        $sql = "SELECT * FROM pacotes_padrao ORDER BY id";
+        $sql = "SELECT * FROM pacotes_padrao ORDER BY id"; //Comando SQL dentro do Banco
 
         $stm = $this->conn->prepare($sql);
         $stm->execute();

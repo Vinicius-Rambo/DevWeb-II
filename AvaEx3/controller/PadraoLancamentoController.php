@@ -3,7 +3,7 @@ include_once(__DIR__ . "/../dao/PadraoLancamentoDao.php");
 class PadraoLancamentoController{
     private PadraoLancamentoDao $padraoLancamentoDao;
 
-    public function __construct(){
+    public function __construct(){ //metodo construtor do objeto.
         $this->padraoLancamentoDao = new PadraoLancamentoDao();
     }
 

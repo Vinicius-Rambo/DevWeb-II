@@ -1,20 +1,17 @@
 <?php
-
 include_once(__DIR__ . "/../util/Connection.php");
 include_once(__DIR__ . "/../model/Derivado.php");
 
 class DerivadoDao {
-
     private PDO $conn;
 
     public function __construct() {
         $this->conn = Connection::getConnection();
     }
 
-    public function list() {
-        $sql = "SELECT * FROM derivados ORDER BY nome";
-
-        $stm = $this->conn->prepare($sql);
+    public function list() { 
+        $sql = "SELECT * FROM derivados ORDER BY nome"; //Comando SQL dentro do Banco
+        $stm = $this->conn->prepare($sql); 
         $stm->execute();
         $result = $stm->fetchAll();
 

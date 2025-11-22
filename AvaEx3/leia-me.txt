@@ -1,4 +1,3 @@
 Falta:
 
-Excluir, Editar, Persistencia e Mensagem de erro.
-Estilização : Menus, cores e aparencia.
+Bootstrap + Comentarios 

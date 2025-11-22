@@ -12,7 +12,7 @@ class PadraoLancamentoDao {
     }
 
     public function list() {
-       $sql = "SELECT * FROM padrao_lancamento ORDER BY nome";
+       $sql = "SELECT * FROM padrao_lancamento ORDER BY nome"; //Comando SQL dentro do Banco
 
         $stm = $this->conn->prepare($sql);
         $stm->execute();
@@ -29,7 +29,7 @@ class PadraoLancamentoDao {
             $padrao->setId($r['id']);
             $padrao->setPadraoLancamento($r['nome']);
 
-            array_push($lancamentos, $padrao);
+            array_push($lancamentos, $padrao); //pega os valores do objeto padrao e adiciona no array lancamentos. 
         }
 
         return $lancamentos;

@@ -3,7 +3,7 @@ include_once(__DIR__ . "/../dao/DerivadoDao.php");
 class DerivadoController{
     private DerivadoDao $derivadoDao;
 
-    public function __construct(){
+    public function __construct(){ //metodo construtor do objeto.
         $this->derivadoDao = new DerivadoDao();
     }
 

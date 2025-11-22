@@ -3,7 +3,7 @@ include_once(__DIR__ . "/../dao/PacotesPadraoDao.php");
 class PacotesPadraoController{
     private PacotesPadraoDao $pacotesPadraoDao;
 
-    public function __construct(){
+    public function __construct(){ //metodo construtor do objeto.
         $this->pacotesPadraoDao = new PacotesPadraoDao();
     }
 
