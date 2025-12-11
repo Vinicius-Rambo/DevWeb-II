@@ -8,7 +8,7 @@ use App\Model\Sistema;
 
 use \Exception;
 
-class SistemaDao {
+class sistemaDao {
 
     private $conn;
     private $mapper;

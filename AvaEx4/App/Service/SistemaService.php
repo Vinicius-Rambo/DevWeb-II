@@ -2,9 +2,9 @@
 
 namespace App\Service;
 
-use App\Model\Sistema
+use App\Model\Sistema;
 
-class SistemaService{
+class SistemaService {
     public function validar (Sistema $sistema){
         $erros = array();
         //validações

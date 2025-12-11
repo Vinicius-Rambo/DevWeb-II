@@ -5,7 +5,7 @@ namespace App\Controller;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-use App\Dao\SistemaDAO;
+use App\Dao\SistemaDao;
 use App\Mapper\SistemaMapper;
 use App\Service\SistemaService;
 use App\Util\MensagemErro;
@@ -14,19 +14,19 @@ use PDOException;
 
 class SistemaController {
 
-    private SistemaDAO $sistemaDAO;
+    private SistemaDao $SistemaDao;
     private SistemaMapper $sistemaMapper;
     private SistemaService $sistemaService;
 
     public function __construct() {
-        $this->sistemaDAO = new SistemaDAO();
+        $this->SistemaDao = new SistemaDao();
         $this->sistemaMapper = new SistemaMapper();
         $this->sistemaService = new SistemaService();
     }
 
     // LISTAR
-    public function listar(Request $request, Response $response, array $args): Response {
-        $sistemas = $this->sistemaDAO->list();
+    public function listar(Request $request, Response $response): Response {
+        $sistemas = $this->SistemaDao->list();
 
         $json = json_encode($sistemas, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         $response->getBody()->write($json);
@@ -38,8 +38,8 @@ class SistemaController {
 
     // BUSCAR POR ID
     public function buscarPorID(Request $request, Response $response, array $args): Response {
-        $id = $args["id"];
-        $sistema = $this->sistemaDAO->findById($id);
+        $id = (int) $args["id"];
+        $sistema = $this->SistemaDao->findById($id);
 
         if(!$sistema) {
             return $response->withStatus(404);
@@ -54,7 +54,7 @@ class SistemaController {
     }
 
     // INSERIR
-    public function inserir(Request $request, Response $response, array $args): Response {
+    public function inserir(Request $request, Response $response): Response {
         $dataArray = $request->getParsedBody();
         $sistema = $this->sistemaMapper->mapFromJsonToObject($dataArray);
 
@@ -67,7 +67,7 @@ class SistemaController {
         }
 
         try {
-            $this->sistemaDAO->insert($sistema);
+            $this->SistemaDao->insert($sistema);
 
             $json = json_encode($sistema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             $response->getBody()->write($json);
@@ -85,7 +85,7 @@ class SistemaController {
     // EDITAR
     public function editar(Request $request, Response $response, array $args): Response {
         $id = $args["id"];
-        $sistemaExistente = $this->sistemaDAO->findById($id);
+        $sistemaExistente = $this->SistemaDao->findById($id);
 
         if (!$sistemaExistente) {
             return $response->withStatus(404);
@@ -104,7 +104,7 @@ class SistemaController {
 
         try {
             $sistema->setId($id);
-            $sistemaEditado = $this->sistemaDAO->update($sistema);
+            $sistemaEditado = $this->SistemaDao->update($sistema);
 
             $json = json_encode($sistemaEditado, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             $response->getBody()->write($json);
@@ -122,14 +122,14 @@ class SistemaController {
     // EXCLUIR
     public function excluir(Request $request, Response $response, array $args): Response {
         $id = $args["id"];
-        $sistema = $this->sistemaDAO->findById($id);
+        $sistema = $this->SistemaDao->findById($id);
 
         if(!$sistema){
             return $response->withStatus(404);
         }
 
         try {
-            $this->sistemaDAO->deleteById($id);
+            $this->SistemaDao->deleteById($id);
 
             return $response
                 ->withHeader('Content-Type', 'application/json')
