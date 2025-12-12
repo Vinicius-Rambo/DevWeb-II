@@ -7,7 +7,7 @@ use \App\Model\PadraoLancamento;
 use \App\Model\PacotesPadrao;
 use \App\Model\Derivado;
 
-class Sistema implements JsonSerializable{
+class Sistema implements JsonSerializable {
     private ?int $id = null;
     private ?string $nome = null;
     private ?string $desenvolvedora = null;
@@ -16,7 +16,7 @@ class Sistema implements JsonSerializable{
     private ?PacotesPadrao $pacotesPadrao = null;
     private ?Derivado $derivado = null; 
     
-    public function __construct(){
+    public function __construct() {
         $this->id = 0; 
         $this->nome = null; 
         $this->desenvolvedora = null; 
@@ -26,16 +26,17 @@ class Sistema implements JsonSerializable{
         $this->derivado = null; 
     }
 
+    // JSON retorna apenas os IDs das relações
     public function jsonSerialize(): array {
-        return array(
+        return [
             "id" => $this->id,
             "nome" => $this->nome,
             "desenvolvedora" => $this->desenvolvedora,
             "versao" => $this->versao,
-            "padraoLancamento" => $this->padraoLancamento,
-            "pacotesPadrao" => $this->pacotesPadrao,
-            "derivado" => $this->derivado
-        );
+            "padraoLancamento" => $this->padraoLancamento?->getId(),
+            "pacotesPadrao" => $this->pacotesPadrao?->getId(),
+            "derivado" => $this->derivado?->getId()
+        ];
     }
     
     // Getter e Setter: id
@@ -45,7 +46,6 @@ class Sistema implements JsonSerializable{
 
     public function setId(?int $id): self {
         $this->id = $id;
-
         return $this;
     }
 
@@ -56,7 +56,6 @@ class Sistema implements JsonSerializable{
 
     public function setNome(?string $nome): self {
         $this->nome = $nome;
-
         return $this;
     }
 
@@ -67,7 +66,6 @@ class Sistema implements JsonSerializable{
 
     public function setDesenvolvedora(?string $desenvolvedora): self {
         $this->desenvolvedora = $desenvolvedora;
-
         return $this;
     }
 
@@ -78,9 +76,7 @@ class Sistema implements JsonSerializable{
 
     public function setVersao(?string $versao): self {
         $this->versao = $versao;
-
         return $this;
-
     }
 
     // Getter e Setter: padraoLancamento
@@ -90,9 +86,7 @@ class Sistema implements JsonSerializable{
 
     public function setPadraoLancamento(?PadraoLancamento $padraoLancamento): self {
         $this->padraoLancamento = $padraoLancamento;
-
         return $this;
-
     }
 
     // Getter e Setter: pacotesPadrao
@@ -102,7 +96,6 @@ class Sistema implements JsonSerializable{
 
     public function setPacotesPadrao(?PacotesPadrao $pacotesPadrao): self {
         $this->pacotesPadrao = $pacotesPadrao;
-
         return $this;
     }
 
@@ -113,8 +106,6 @@ class Sistema implements JsonSerializable{
 
     public function setDerivado(?Derivado $derivado): self {
         $this->derivado = $derivado;
-
         return $this;
     }
 }
-
