@@ -1,0 +1,50 @@
+Vizualizar com GET:
+
+Listar -> http://localhost:8082/sistemas
+Buscar por ID -> GET http://localhost:8082/sistemas/3
+
+inserir usando POST
+
+http://localhost:8082/sistemas
+
+dentro do body: 
+
+1- Novo Pop
+{
+  "nome": "Pop!_OS",
+  "desenvolvedora": "System76",
+  "versao": "24.04",
+  "padraoLancamento": { "id": 5 },
+  "pacotesPadrao": { "id": 1 },
+  "derivado": { "id": 2 }
+}
+
+2- OpenMandriva //Escrito o nome errado de proposito.
+{
+  "nome": "OpenMandriva",
+  "desenvolvedora": "OpenMandryv Association",
+  "versao": "24.04",
+  "padraoLancamento": { "id": 5 },
+  "pacotesPadrao": { "id": 1 },
+  "derivado": { "id": 6 }
+}
+
+Deletar usando Delete com ID.
+
+http://localhost:8082/sistemas/1
+http://localhost:8082/sistemas/2
+
+Editar usando PUT
+
+http://localhost:8082/sistemas/13 
+
+OpenMandriva concertado
+
+{
+  "nome": "OpenMandriva",
+  "desenvolvedora": "OpenMandriva Association",
+  "versao": "24.04",
+  "padraoLancamento": { "id": 5 },
+  "pacotesPadrao": { "id": 1 },
+  "derivado": { "id": 6 }
+}

@@ -95,3 +95,17 @@ ALTER TABLE sistemas
   ADD CONSTRAINT fk_padrao_lancamento FOREIGN KEY (id_padrao_lancamento) REFERENCES padrao_lancamento (id),
   ADD CONSTRAINT fk_pacotes_padrao FOREIGN KEY (id_pacotes_padrao) REFERENCES pacotes_padrao (id),
   ADD CONSTRAINT fk_derivado FOREIGN KEY (id_derivado) REFERENCES derivados (id);
+
+
+INSERT INTO sistemas (nome, desenvolvedora, versao, id_padrao_lancamento, id_pacotes_padrao, id_derivado) VALUES
+('Debian',           'Debian Project',       '12',      5, 1, 1),
+('Ubuntu',           'Canonical',            '22.04',   2, 1, 2),
+('Pop!_OS',          'System76',             '22.04',   5, 1, 2),
+('Linux Mint',       'Linux Mint Team',      '21.1',    5, 1, 2),
+('Arch Linux',       'Arch Community',       '2025.01.01', 1, 5, 3),
+('Manjaro',          'Manjaro GmbH',         '23.0',    3, 5, 3),
+('Fedora Workstation','Red Hat',              '41',      3, 2, 4),
+('openSUSE Leap',    'openSUSE Project',     '15.5',    5, 4, 5),
+('RHEL',             'Red Hat',              '9',       5, 3, 7),
+('NixOS',            'NixOS Community',      '23.11',   1, 6, 6),
+('Guix System',      'GNU Guix Project',     '1.5',     1, 7, 6);

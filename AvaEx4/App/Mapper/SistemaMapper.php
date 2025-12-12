@@ -25,7 +25,7 @@ class SistemaMapper {
         $obj->setDesenvolvedora($regDatabase['desenvolvedora'] ?? null);
         $obj->setVersao($regDatabase['versao'] ?? null);
 
-        // --- Relações do DB ---
+        //Relações dos Banco de dados  
         if (!empty($regDatabase['padrao_id'])) {
             $padrao = new PadraoLancamento();
             $padrao->setId($regDatabase['padrao_id']);
@@ -57,7 +57,7 @@ class SistemaMapper {
         $obj->setDesenvolvedora($json['desenvolvedora'] ?? null);
         $obj->setVersao($json['versao'] ?? null);
 
-        // --- Relações do JSON ---
+        
         if (!empty($json['padraoLancamento']['id'])) {
             $padrao = new PadraoLancamento();
             $padrao->setId($json['padraoLancamento']['id']);
